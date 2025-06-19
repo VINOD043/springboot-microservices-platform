@@ -6,7 +6,7 @@ WebSecurityConfigurerAdapter was deprecated in Spring Security 5.7 and removed i
 
 Since we are using Spring Boot 3.x, which includes Spring Security 6, the correct way is to use the new component-based security configuration approach using SecurityFilterChain.
 
-Creating a multi-module application:
+<b>Creating a multi-module application:<b>
 
 1. Create root maven project:
 Create a Maven Project. Select the checkbox for "Create a simple project (skip archetype selection)" and click on Next. Provide the required details, the packaging should be pom and click Finish. This creates the root maven project.
