@@ -34,13 +34,24 @@ Access GUI </b></h4>
 
 Open browser → http://localhost:8082
 	• Login DN: cn=admin,dc=mycompany,dc=com
-	• Password: admin
+ 	• Password: admin
 
 ![image](https://github.com/user-attachments/assets/c5d1eb9f-26c5-4b62-ab6a-8f1fa551e545)
 
 
 ![image](https://github.com/user-attachments/assets/c07aef69-5018-47ee-aa88-78cf7621ce84)
 
+
+<h4><b>	Step-by-Step to Create a Group: </b></h4>
+	1. In phpLDAPadmin, expand the tree:
+		→ dc=mycompany,dc=com
+	2. Click Create a child entry under it
+	3. Choose template: Generic: Posix Group
+	4. Fill:
+		○ cn: developers
+		○ gidNumber: 5000 (pick any unique number)
+	5. Click Create Object, then Commit
+	✅ This will create a group with gidNumber = 5000
 
 
 
