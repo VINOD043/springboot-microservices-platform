@@ -64,7 +64,7 @@ Open browser → http://localhost:8082
 <br>		5. Click Create Object, then Commit
 <br>
 <h4><b>Create a User</b></h4>
-<br>		1. Go back to dc=mycompany,dc=com
+    		1. Go back to dc=mycompany,dc=com
 <br>		2. Under the new ou=people, click "Create a child entry"
 <br>		3. Choose Generic: User Account
 <br>		4. Fill form:
@@ -78,7 +78,7 @@ Open browser → http://localhost:8082
 <br>	✅ Done! Now you have a user testuser with password testpass in LDAP.
 <br>
 <h2><b>Recommendation (if you're learning)</b></h2>
-<br>	✅ Change the code to use cn={0},ou=people for now, so you can finish the authentication module quickly.
+✅ Change the code to use cn={0},ou=people for now, so you can finish the authentication module quickly.
 <br>	🛠 Later, once you're comfortable, switch back to uid={0},ou=people and use .ldif to create proper users — like you'd do in a real enterprise setup.
 
 
