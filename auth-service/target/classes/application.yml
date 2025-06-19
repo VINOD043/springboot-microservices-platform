@@ -1,0 +1,13 @@
+spring:
+  ldap:
+    urls: ldap://localhost:389
+    base: dc=mycompany,dc=com
+    username: cn=admin,dc=mycompany,dc=com
+    password: admin
+
+server:
+  port: 8081
+
+jwt:
+  secret: MyJWTSecretKeyThatShouldBeSecure
+  expirationMs: 86400000
