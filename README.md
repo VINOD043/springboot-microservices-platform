@@ -29,6 +29,19 @@ From the same folder: docker-compose up -d
 
 ![image](https://github.com/user-attachments/assets/8e09375a-81a8-437f-8754-6187e6193169)
 
+<h4><b>	Step-by-Step: Add a Test LDAP User via phpLDAPadmin:
+Access GUI </b></h4>
+
+Open browser → http://localhost:8082
+	• Login DN: cn=admin,dc=mycompany,dc=com
+	• Password: admin
+
+![image](https://github.com/user-attachments/assets/c5d1eb9f-26c5-4b62-ab6a-8f1fa551e545)
+
+
+![image](https://github.com/user-attachments/assets/c07aef69-5018-47ee-aa88-78cf7621ce84)
+
+
 
 
 
