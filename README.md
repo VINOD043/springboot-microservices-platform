@@ -8,17 +8,7 @@ Since we are using Spring Boot 3.x, which includes Spring Security 6, the correc
 
 Creating a multi-module application:
 
-	1. Create root maven project:
-	Create a Maven Project. Select the checkbox for "Create a simple project (skip archetype selection)" and click on Next. Provide the required details, the packaging should be pom and click Finish. This creates the root maven project.
- 
-	![image](https://github.com/user-attachments/assets/7d8b3392-cf40-40f5-8d42-973095547570)
+1. Create root maven project:
+Create a Maven Project. Select the checkbox for "Create a simple project (skip archetype selection)" and click on Next. Provide the required details, the packaging should be pom and click Finish. This creates the root maven project.
+![image](https://github.com/user-attachments/assets/69548f6f-28e0-489d-bce8-b3a28a7e8534)
 
-		
-	
-	2. To create modules inside the project: 
-	Right click on the project -> New and select Maven Module option. Select the checkbox for "Create a simple project (skip archetype selection)". 
- 	Provide the module name and browse the parent project in  which the module needs to be created and Click on Finish.
-	
-		
-	 
-	![image](https://github.com/user-attachments/assets/94310b19-420c-4d9d-90e2-5674c4f8f54d)
