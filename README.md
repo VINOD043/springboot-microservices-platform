@@ -43,7 +43,7 @@ Open browser → http://localhost:8082
 
 
 <h4><b>	Step-by-Step to Create a Group: </b></h4>
-<br>	1. In phpLDAPadmin, expand the tree:
+        1. In phpLDAPadmin, expand the tree:
 <br>		→ dc=mycompany,dc=com
 <br>	2. Click Create a child entry under it
 <br>	3. Choose template: Generic: Posix Group
@@ -54,7 +54,7 @@ Open browser → http://localhost:8082
 <br>	✅ This will create a group with gidNumber = 5000
 <br>
 <h4><b> Create ou=people and move your users there (recommended)</b></h4>
-<br>	This aligns with common LDAP structures and Spring Boot defaults.
+        This aligns with common LDAP structures and Spring Boot defaults.
 <br>	📄 Steps in phpLDAPadmin:
 <br>		1. Expand: dc=mycompany,dc=com
 <br>		2. Click "Create a child entry"
