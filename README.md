@@ -15,6 +15,9 @@ Create a Maven Project. Select the checkbox for "Create a simple project (skip a
 
 
 
-
-2. To create modules inside the project: 
+<b>
+2. To create modules inside the project: </b>
 Right click on the project -> New and select Maven Module option. Select the checkbox for "Create a simple project (skip archetype selection)". Provide the module name and browse the parent project in  which the module needs to be created and Click on Finish.
+
+![image](https://github.com/user-attachments/assets/f7ebc55e-9bac-4235-b25e-2b6ddc1ae765)
+
