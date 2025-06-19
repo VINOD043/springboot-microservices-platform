@@ -21,3 +21,14 @@ Right click on the project -> New and select Maven Module option. Select the che
 
 ![image](https://github.com/user-attachments/assets/f7ebc55e-9bac-4235-b25e-2b6ddc1ae765)
 
+
+**----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------**
+</h3><b>	Set up OpenLDAP + phpLDAPadmin using Docker and create a test user that we’ll authenticate via your /auth/login endpoint.</b></h3>
+<h4><b>	Run the Containers:</b></h4>  
+From the same folder: docker-compose up -d
+
+![image](https://github.com/user-attachments/assets/8e09375a-81a8-437f-8754-6187e6193169)
+
+
+
+
