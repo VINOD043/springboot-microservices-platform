@@ -33,8 +33,8 @@ From the same folder: docker-compose up -d
 Access GUI </b></h4>
 
 Open browser → http://localhost:8082
-	• Login DN: cn=admin,dc=mycompany,dc=com
- 	• Password: admin
+<br>	• Login DN: cn=admin,dc=mycompany,dc=com
+<br> 	• Password: admin
 
 ![image](https://github.com/user-attachments/assets/c5d1eb9f-26c5-4b62-ab6a-8f1fa551e545)
 
@@ -43,15 +43,28 @@ Open browser → http://localhost:8082
 
 
 <h4><b>	Step-by-Step to Create a Group: </b></h4>
-	1. In phpLDAPadmin, expand the tree:
-		→ dc=mycompany,dc=com
-	2. Click Create a child entry under it
-	3. Choose template: Generic: Posix Group
-	4. Fill:
-		○ cn: developers
-		○ gidNumber: 5000 (pick any unique number)
-	5. Click Create Object, then Commit
-	✅ This will create a group with gidNumber = 5000
+<br>	1. In phpLDAPadmin, expand the tree:
+<br>		→ dc=mycompany,dc=com
+<br>	2. Click Create a child entry under it
+<br>	3. Choose template: Generic: Posix Group
+<br>	4. Fill:
+<br>		○ cn: developers
+<br>		○ gidNumber: 5000 (pick any unique number)
+<br>	5. Click Create Object, then Commit
+<br>	✅ This will create a group with gidNumber = 5000
+
+<br>
+<h4><b> Create ou=people and move your users there (recommended)</b></h4>
+<br>	This aligns with common LDAP structures and Spring Boot defaults.
+<br>	📄 Steps in phpLDAPadmin:
+<br>		1. Expand: dc=mycompany,dc=com
+<br>		2. Click "Create a child entry"
+<br>		3. Choose template: Generic: Organizational Unit
+<br>		4. Enter:
+<br>			○ ou: people
+<br>		5. Click Create Object, then Commit
+
+
 
 
 
