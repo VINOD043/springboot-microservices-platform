@@ -82,13 +82,16 @@ Open browser → http://localhost:8082
 <br>	🛠 Later, once you're comfortable, switch back to uid={0},ou=people and use .ldif to create proper users — like you'd do in a real enterprise setup.
 <br>
 <h4><b>Using Postman or curl</b></h4>
-curl -X POST http://localhost:8081/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"username": "testuser", "password": "testpass"}'
+curl -X POST http://localhost:8081/auth/login -H "Content-Type: application/json" -d '{"username": "Test User", "password": "testpass"}'
 
 <br>
 <h4><b>Test Token Validation with curl</b></h4>
-curl -H "Authorization: Bearer <your-jwt-token>" http://localhost:8081/auth/validate
+curl -X GET http://localhost:8081/auth/validate -H "Authorization: Bearer <your-jwt-token>"
+
+Example:
+curl -X GET http://localhost:8081/auth/validate -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZXN0IFVzZXIiLCJpYXQiOjE3NTA1MzUzMTUsImV4cCI6MTc1MDYyMTcxNX0.j3YU6RZbxAPAQCsh6cYwbPm66sV240p3i16T2ulDxCo"
+
+Output: {"valid":true,"username":"Test User"}
 
 ![image](https://github.com/user-attachments/assets/07a66f71-6423-4fdd-b1ad-fc32f00f36b4)
 
