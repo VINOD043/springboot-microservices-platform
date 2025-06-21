@@ -89,8 +89,9 @@ curl -X POST http://localhost:8081/auth/login \
 <br>
 <h4><b>Test Token Validation with curl</b></h4>
 curl -H "Authorization: Bearer <your-jwt-token>" http://localhost:8081/auth/validate
-<br>
-![image](https://github.com/user-attachments/assets/933cc82a-8ede-4621-9a79-6e330689c06d)
+
+![image](https://github.com/user-attachments/assets/07a66f71-6423-4fdd-b1ad-fc32f00f36b4)
+
 
 
 
