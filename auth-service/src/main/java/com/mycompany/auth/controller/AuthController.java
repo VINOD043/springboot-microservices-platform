@@ -1,6 +1,8 @@
 package com.mycompany.auth.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -25,15 +27,16 @@ public class AuthController {
 	private JwtUtil jwtUtil;
 	
 	@PostMapping("/login")
-    public LoginResponse login(@RequestBody LoginRequest request) {
+    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
         try {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
             );
             String token = jwtUtil.generateToken(request.getUsername());
-            return new LoginResponse(token);
+            return ResponseEntity.ok(LoginResponse.success(token));
         } catch (AuthenticationException e) {
-            throw new RuntimeException("Invalid username or password");
+        	return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(LoginResponse.failure("Invalid username or password"));
         }
     }
 }

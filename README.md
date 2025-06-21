@@ -80,6 +80,11 @@ Open browser → http://localhost:8082
 <h2><b>Recommendation (if you're learning)</b></h2>
 ✅ Change the code to use cn={0},ou=people for now, so you can finish the authentication module quickly.
 <br>	🛠 Later, once you're comfortable, switch back to uid={0},ou=people and use .ldif to create proper users — like you'd do in a real enterprise setup.
+<br>
+<h4><b>Using Postman or curl</b></h4>
+curl -X POST http://localhost:8081/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"username": "testuser", "password": "testpass"}'
 
 
 
