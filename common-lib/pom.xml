@@ -2,8 +2,9 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.mycompany</groupId>
-    <artifactId>springboot-microservices</artifactId>
+    <artifactId>parent-pom</artifactId>
     <version>1.0.0</version>
+    <relativePath>../parent-pom/pom.xml</relativePath>
   </parent>
   <artifactId>common-lib</artifactId>
 </project>

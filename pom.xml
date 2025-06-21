@@ -11,7 +11,6 @@
   	<module>parent-pom</module>
   	<module>common-lib</module>
   	<module>auth-service</module>
-  	<module>test-test</module>
   </modules>
   
 </project>

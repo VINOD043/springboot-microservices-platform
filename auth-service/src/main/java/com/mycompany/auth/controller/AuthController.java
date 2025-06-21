@@ -1,5 +1,7 @@
 package com.mycompany.auth.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,8 +9,10 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,4 +43,24 @@ public class AuthController {
                     .body(LoginResponse.failure("Invalid username or password"));
         }
     }
+	
+	@GetMapping("/validate")
+	public ResponseEntity<?> validateToken(@RequestHeader("Authorization") String authHeader) {
+	    try {
+	    	System.out.println("Validating token");
+	    	System.out.println("Received Authorization header: " + authHeader);
+	        String token = authHeader.replace("Bearer ", "");
+	        if (jwtUtil.validateToken(token)) {
+	            String username = jwtUtil.extractUsername(token);
+	            return ResponseEntity.ok(Map.of("valid", true, "username", username));
+	        } else {
+	            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+	                                 .body(Map.of("valid", false, "message", "Invalid token"));
+	        }
+	    } catch (Exception e) {
+	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+	                             .body(Map.of("valid", false, "message", "Token validation failed"));
+	    }
+	}
+
 }
