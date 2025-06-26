@@ -1,6 +1,7 @@
 package com.mycompany.auth.controller;
 
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,6 +31,8 @@ public class AuthController {
 	@Autowired
 	private JwtUtil jwtUtil;
 	
+	private final Map<String, String> refreshTokenStore = new ConcurrentHashMap();
+	
 	@PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
         try {
@@ -37,7 +40,11 @@ public class AuthController {
                     new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
             );
             String token = jwtUtil.generateToken(request.getUsername());
-            return ResponseEntity.ok(LoginResponse.success(token));
+            String refreshToken = jwtUtil.generateRefreshToken(request.getUsername());
+            
+            refreshTokenStore.put(refreshToken, request.getUsername());
+            
+            return ResponseEntity.ok(LoginResponse.success(token, refreshToken));
         } catch (AuthenticationException e) {
         	return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body(LoginResponse.failure("Invalid username or password"));
@@ -62,5 +69,28 @@ public class AuthController {
 	                             .body(Map.of("valid", false, "message", "Token validation failed"));
 	    }
 	}
+	
+	@PostMapping("/refresh")
+	public ResponseEntity<?> refresh(@RequestBody Map<String, String> body) {
+	    String refreshToken = body.get("refreshToken");
+	    if (refreshToken == null || !jwtUtil.validateRefreshToken(refreshToken)) {
+	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+	                .body(Map.of("success", false, "message", "Invalid refresh token"));
+	    }
+
+	    String username = jwtUtil.extractUsername(refreshToken);
+	    if (!refreshTokenStore.containsKey(refreshToken)) {
+	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+	                .body(Map.of("success", false, "message", "Refresh token not found"));
+	    }
+
+	    String newAccessToken = jwtUtil.generateToken(username);
+	    return ResponseEntity.ok(Map.of(
+	            "success", true,
+	            "token", newAccessToken,
+	            "refreshToken", refreshToken
+	    ));
+	}
+
 
 }

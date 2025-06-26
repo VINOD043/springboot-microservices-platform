@@ -19,6 +19,9 @@ public class JwtUtil {
 
     @Value("${jwt.expirationMs}")
     private long expirationMs;
+    
+    @Value("${jwt.refreshExpirationMs}")
+    private long refreshExpirationMs;
 
     public String generateToken(String username) {
         Key key = Keys.hmacShaKeyFor(secret.getBytes());
@@ -54,5 +57,27 @@ public class JwtUtil {
             return false;
         }
     }
+    
+    public String generateRefreshToken(String username) {
+        Key key = Keys.hmacShaKeyFor(secret.getBytes());
+        return Jwts.builder()
+                .setSubject(username)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + refreshExpirationMs)) // e.g., 7 days
+                .signWith(key, SignatureAlgorithm.HS256)
+                .compact();
+    }
+
+    public boolean validateRefreshToken(String token) {
+        try {
+            Key key = Keys.hmacShaKeyFor(secret.getBytes());
+            Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
+            return true;
+        } catch (JwtException | IllegalArgumentException e) {
+            System.out.println("Refresh token validation failed: " + e.getMessage());
+            return false;
+        }
+    }
+
 
 }

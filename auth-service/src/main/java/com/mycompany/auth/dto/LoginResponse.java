@@ -4,24 +4,27 @@ public class LoginResponse {
 
 	private boolean success;
     private String token;
+    private String refreshToken;
     private String message;
 
-	public LoginResponse() {
-	}
-
-	public LoginResponse(boolean success, String token, String message) {
+    public LoginResponse() {
+    	
+    }
+    
+    public LoginResponse(boolean success, String token, String refreshToken, String message) {
 		super();
 		this.success = success;
 		this.token = token;
+		this.refreshToken = refreshToken;
 		this.message = message;
 	}
 
-	public static LoginResponse success(String token) {
-        return new LoginResponse(true, token, "Login successful");
+	public static LoginResponse success(String token, String refreshToken) {
+        return new LoginResponse(true, token, refreshToken, "Login successful");
     }
 
     public static LoginResponse failure(String message) {
-        return new LoginResponse(false, null, message);
+        return new LoginResponse(false, null, null, message);
     }
 	
 	public String getToken() {
@@ -46,6 +49,14 @@ public class LoginResponse {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public String getRefreshToken() {
+		return refreshToken;
+	}
+
+	public void setRefreshToken(String refreshToken) {
+		this.refreshToken = refreshToken;
 	}
 
 }
