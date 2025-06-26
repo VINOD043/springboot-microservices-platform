@@ -97,7 +97,7 @@ Output: {"valid":true,"username":"Test User"}
 
 
 <br>
-<h4><b>Implementing Refresh Token</b></h4>
+<h2><b>Implementing Refresh Token</b></h2>
 
 ![image](https://github.com/user-attachments/assets/32783549-e99f-4c3f-a8ff-2ef407a23695)
 
