@@ -96,6 +96,11 @@ Output: {"valid":true,"username":"Test User"}
 ![image](https://github.com/user-attachments/assets/07a66f71-6423-4fdd-b1ad-fc32f00f36b4)
 
 
+<br>
+<h4><b>Implementing Refresh Token</b></h4>
+
+![image](https://github.com/user-attachments/assets/32783549-e99f-4c3f-a8ff-2ef407a23695)
+
 
 
 
