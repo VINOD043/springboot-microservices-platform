@@ -10,5 +10,5 @@ server:
 
 jwt:
   secret: MyJWTSecretKeyThatShouldBeSecure
-  expirationMs: 900000            # 15 mins access token
-  refreshExpirationMs: 604800000  # 7 days
+  expirationMs: 120000            # 2 mins access token
+  refreshExpirationMs: 86400000   # 1 day
